@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
+	<link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	
+
+	<div id="example-5">
+	 <transition>
+	  <button v-bind:key="docState" v-on:click="changeDoc">
+	    {{ buttonMessage }}
+	  </button>
+
+	</transition>
+	{{docState}}
+</div>
+
+
+
+<script type="text/javascript" src="node_modules/vue/dist/vue.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+<script type="text/javascript">
+	var app = new Vue({
+		  el: '#app',
+		  data: {
+		    message: 'Hello Vue!'
+		  }
+		})
+	var app2 = new Vue({
+	  el: '#example-3',
+	  data: {
+	    show: true
+	  }
+	})
+
+	var app3 =new Vue({
+	  el: '#example-4',
+	  data: {
+	    show: false
+	  },
+	  methods: {
+	    beforeEnter: function (el) {
+	      el.style.opacity = 0
+	    },
+	    enter: function (el, done) {
+	      Velocity(el, { opacity: 1, fontSize: '1.4em' }, { duration: 300 })
+	      Velocity(el, { fontSize: '1em' }, { complete: done })
+	    },
+	    leave: function (el, done) {
+	      Velocity(el, { translateX: '15px', rotateZ: '50deg' }, { duration: 600 })
+	      Velocity(el, { rotateZ: '100deg' }, { loop: 2 })
+	      Velocity(el, {
+	        rotateZ: '45deg',
+	        translateY: '30px',
+	        translateX: '30px',
+	        opacity: 0
+	    }, { complete: done })
+	    }
+		}
+	})
+
+	var app5 = new Vue({
+		el: '#example-5',
+		data: {
+			docState : "saved"
+		},
+		methods: {
+			changeDoc: function(){
+				switch (this.docState) {
+			      case 'saved': {this.docState = "edited"}
+			      case 'edited': {this.docState = "editing"}
+			      case 'editing': {this.docState = "saved"}
+			    }
+			}
+		},
+		computed: {
+		  buttonMessage: function () {
+		    switch (this.docState) {
+		      case 'saved': return 'Edit'
+		      case 'edited': return 'Save'
+		      case 'editing': return 'Cancel'
+		    }
+		  },
+		}
+	})
+</script>
+</body>
+</html>

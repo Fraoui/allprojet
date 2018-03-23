@@ -1,0 +1,62 @@
+<!--<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>My VueJS App</title>
+  </head>
+<body>
+    <header class="headertop">
+      <h3 class="title">BRAND</h3>
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-8">
+          <div id="user">
+			<div v-if="page == 'signup'">
+			  	<p>{{ message }}</p>
+			  	<input type="text" name="Username" v-model="username" placeholder="Username" v-model="username" class="form-control p1 username">
+          		<input type="text" name="Password" v-model="password" placeholder="Password" v-model="password" class="form-control p1 password">
+			  	<input type="btn" v-on:click="submit" name="Signup" value="SIGN UP" class="btn btn-block p2">
+			  	<input type="btn" v-on:click="login" name="Login" value="LOGIN" class="btn btn-block p3">
+			</div>
+			<div  v-if="page == 'login'">
+			 	<p>{{ message }}</p>
+			  	<input type="text" name="Username" v-model="username" placeholder="Username" v-model="username" class="form-control p1 username">
+          		<input type="text" name="Password" v-model="password" placeholder="Password" v-model="password" class="form-control p1 password">
+			  	<input type="btn" v-on:click="submit" name="Login" value="LOGIN" class="btn btn-block p2">
+			  	<input type="btn" v-on:click="signup" name="Signup" value="SIGN UP" class="btn btn-block p3">
+			</div>
+			<div v-if="page == 'users'">
+				Liste d'utilisateur
+        <button v-on:click="listUser">User</button>
+        <div v-for="user in users">
+          {{user}}
+        </div>
+        
+				<input type="btn" v-on:click="signup" name="Signup" value="SIGN UP" class="btn btn-block p3">
+			</div>
+		</div>
+
+        </div>
+
+
+        </div>
+        </div>
+
+				
+	</center>
+<script type="text/javascript" src="node_modules/vue/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.0"></script>
+<script type="text/javascript" src="vueScript.js">
+</script>
+</body>
+</html>-->
